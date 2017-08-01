@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package garage;
+
+// The garage service definition.
+service Garage {
+  // Returns a random car
+  rpc RandomCar(CarRequest) returns (Car) {}
+}
+
+message CarRequest {
+  uint32 requestNumber = 1;
+}
+
+// The request message containing the user's name.
+message Car {
+  string make = 1;
+  string model = 2;
+  uint32 year = 3;
+  uint32 horsepower =4;
+}

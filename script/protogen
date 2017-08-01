@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+protoc \
+  --proto_path ./protos \
+  --grpc_out=./garage_client/lib \
+  --plugin=protoc-gen-grpc=`which grpc_ruby_plugin` \
+  --ruby_out=./garage_client/lib \
+  --go_out=plugins=grpc:garage_server/garage \
+  ./protos/garage.proto
