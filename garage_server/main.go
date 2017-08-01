@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	pb "github.com/aren55555/grpc-playground/garage_server/garage"
+	pb "github.com/aren55555/grpc-example/garage_server/garage"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
