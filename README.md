@@ -8,9 +8,9 @@ A client has been implemented in ruby in `garage_client/app.rb`
 ## Setup
 Make sure you have Go installed `brew install go` and Ruby installed `brew install ruby`. Once you have Ruby installed you will also need Ruby's bundler `gem install bundler`.
 
-Fetch this repo using `go get -u https://github.com/aren55555/grpc-example`
+Fetch this repo using `go get -u github.com/aren55555/grpc-example`
 
-Then do `cd $GOPATH/github.com/aren55555/grpc-example`
+Then do `cd $GOPATH/src/github.com/aren55555/grpc-example`
 
 ## Running
 First you need to convert the prot to Go and Ruby source files. To do this, from the root dir of this project execute `script/protogen`
