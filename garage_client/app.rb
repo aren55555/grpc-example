@@ -9,7 +9,7 @@ require 'multi_json'
 require 'garage_services_pb'
 
 def request_car(n)
-  stub = Garage::Garage::Stub.new('localhost:50051', :this_channel_is_insecure)
+  stub = Garage::Garage::Stub.new('grpc.arenpatel.com:50051', :this_channel_is_insecure)
   car = stub.random_car(Garage::CarRequest.new(requestNumber: n))
   puts "A random car was retrieved from the GRPC server:" +
          "\n\tMake: #{car.make}" +
