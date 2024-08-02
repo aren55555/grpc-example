@@ -3,7 +3,7 @@
 set -e
 
 mkdir -p parking_client/lib
-mkdir -p parking_server/parking
+mkdir -p parking_server/grpc
 
 PATH=$PATH:$GOPATH/bin
 
@@ -12,6 +12,5 @@ protoc \
   --grpc_out=./parking_client/lib \
   --plugin=protoc-gen-grpc=`which grpc_ruby_plugin` \
   --ruby_out=./parking_client/lib \
-  --go_out=. \
-  --go-grpc_out=. \
+  --go-grpc_out=./parking_server/grpc \
   ./protos/parking.proto

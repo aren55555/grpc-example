@@ -4,7 +4,7 @@
 // - protoc             v5.27.1
 // source: parking.proto
 
-package parking
+package grpc
 
 import (
 	context "context"

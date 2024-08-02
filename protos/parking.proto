@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package parking;
-option go_package = "github.com/aren55555/grpc-example/parking";
+option go_package = "github.com/aren55555/grpc-example/parking_server/grpc";
 
 import "google/protobuf/timestamp.proto";
 
