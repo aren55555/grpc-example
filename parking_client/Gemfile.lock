@@ -1,43 +1,59 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.1)
-      public_suffix (~> 2.0, >= 2.0.2)
-    faraday (0.12.2)
-      multipart-post (>= 1.2, < 3)
-    google-protobuf (3.3.0)
-    googleauth (0.5.3)
-      faraday (~> 0.12)
-      jwt (~> 1.4)
-      logging (~> 2.0)
-      memoist (~> 0.12)
-      multi_json (~> 1.11)
-      os (~> 0.9)
-      signet (~> 0.7)
-    grpc (1.4.1)
-      google-protobuf (~> 3.1)
-      googleauth (~> 0.5.1)
-    jwt (1.5.6)
-    little-plugger (1.1.4)
-    logging (2.2.2)
-      little-plugger (~> 1.1)
-      multi_json (~> 1.10)
-    memoist (0.16.0)
-    multi_json (1.12.1)
-    multipart-post (2.0.0)
-    os (0.9.6)
-    public_suffix (2.0.5)
-    signet (0.7.3)
-      addressable (~> 2.3)
-      faraday (~> 0.9)
-      jwt (~> 1.5)
-      multi_json (~> 1.10)
+    bigdecimal (3.1.8)
+    google-protobuf (4.27.3)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.3-aarch64-linux)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.3-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.3-x86-linux)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.3-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.3-x86_64-linux)
+      bigdecimal
+      rake (>= 13)
+    googleapis-common-protos-types (1.15.0)
+      google-protobuf (>= 3.18, < 5.a)
+    grpc (1.65.2)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.65.2-aarch64-linux)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.65.2-arm64-darwin)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.65.2-x86-linux)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.65.2-x86_64-darwin)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    grpc (1.65.2-x86_64-linux)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
+    multi_json (1.15.0)
+    rake (13.2.1)
 
 PLATFORMS
+  aarch64-linux
+  arm64-darwin
   ruby
+  x86-linux
+  x86_64-darwin
+  x86_64-linux
 
 DEPENDENCIES
-  grpc (~> 1.0)
+  grpc (~> 1.65)
+  multi_json (~> 1.15)
 
 BUNDLED WITH
-   1.14.6
+   2.5.11

@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'grpc', '~> 1.0'
+gem 'grpc', '~> 1.65'
+gem 'multi_json', '~> 1.15'

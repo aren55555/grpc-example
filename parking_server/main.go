@@ -19,23 +19,22 @@ var (
 )
 
 func main() {
+	log.Printf("Parsing flags...")
 	flag.Parse()
 
+	log.Printf("Starting net listener on port %v...", *httpServerPort)
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%v", *httpServerPort))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	storage := storage.New(*maxNumCars)
-	parkingService := parking.NewService(storage)
-	s := grpc.NewServer()
-	pb.RegisterParkingServiceServer(s, parkingService)
+	log.Printf("Registering gRPC parking services")
+	grpcServer := grpc.NewServer()
+	pb.RegisterParkingServiceServer(grpcServer, parking.NewService(storage.New(*maxNumCars)))
+	reflection.Register(grpcServer)
 
-	// Register reflection service on gRPC server.
-	reflection.Register(s)
-	if err := s.Serve(lis); err != nil {
+	log.Printf("Server starting on port %v", *httpServerPort)
+	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
-
-	log.Printf("Server started on port %v", *httpServerPort)
 }
