@@ -7,9 +7,9 @@ import (
 )
 
 type CarDetails struct {
-	Id        string
-	Car       pb.Car
-	EnteredAt time.Time
+	Id        string    `json:"id"`
+	Car       pb.Car    `json:"car"`
+	EnteredAt time.Time `json:"enteredAt"`
 }
 
 type Storer interface {
