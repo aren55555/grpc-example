@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package parking;
+option go_package = "github.com/aren55555/grpc-example/parking";
+
+import "google/protobuf/timestamp.proto";
+
+// Models a parking service that allows a car to be parked and later collected
+service ParkingService {
+  // Use to park the car in the parking lot
+  rpc ParkCar(ParkCarRequest) returns (ParkCarResponse) {}
+
+  // Used to pickup a car from the parking lot
+  rpc CollectCar(CollectCarRequest) returns (CollectCarResponse) {}
+
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse) {}
+}
+
+message Car {
+  string make = 1;
+  string model = 2;
+  uint32 year = 3;
+  uint32 horsepower = 4;
+}
+
+message StoredCar {
+  Car car = 1;
+  google.protobuf.Timestamp entered_at = 2;
+}
+
+message ParkCarRequest {
+  Car car = 1;
+}
+
+message ParkCarResponse {
+  string id = 1;
+  google.protobuf.Timestamp entered_at = 2;
+}
+
+message CollectCarRequest {
+  string id = 1;
+}
+
+message CollectCarResponse {
+  Car car = 1;
+  google.protobuf.Timestamp entered_at = 2;
+  google.protobuf.Timestamp exited_at = 3;
+  uint32 charge_cents = 4;
+}
+
+message GetStatusRequest {}
+
+message GetStatusResponse {
+  map<string, StoredCar> cars = 1;
+}
