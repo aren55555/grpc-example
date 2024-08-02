@@ -2,4 +2,4 @@
 
 set -e
 
-docker push aren55555/grpc-example
+podman push aren55555/grpc-example
