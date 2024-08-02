@@ -2,15 +2,22 @@
 
 set -e
 
+# Ruby
 mkdir -p parking_client/lib
-mkdir -p parking_server/grpc
-
-PATH=$PATH:$GOPATH/bin
-
 protoc \
   --proto_path ./protos \
   --grpc_out=./parking_client/lib \
   --plugin=protoc-gen-grpc=`which grpc_ruby_plugin` \
   --ruby_out=./parking_client/lib \
+  ./protos/parking.proto
+
+# Go
+PATH=$PATH:$GOPATH/bin
+mkdir -p parking_server/grpc
+protoc \
+  --proto_path ./protos \
+  --go_out=./parking_server/grpc \
+  --go_opt=paths=source_relative \
   --go-grpc_out=./parking_server/grpc \
+  --go-grpc_opt=paths=source_relative \
   ./protos/parking.proto
